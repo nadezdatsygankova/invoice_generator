@@ -131,7 +131,8 @@ hr {
   cursor: pointer;
 }
 .sendInvoice button:hover {
-  background: #d1d4f4;}
+  background: #d1d4f4;
+}
 
 .icon {
   background-image: url('./images/icon.svg');
@@ -197,4 +198,26 @@ hr {
 
 .total_amount_calcul {
   color: #4a4e74;
+}
+
+.remove_btn {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #918e9b;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.remove_btn:hover{
+    color: #d1d4f4;
+    border: 1px solid #d1d4f4;
+}
+
+.div_for_name {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
 }

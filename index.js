@@ -19,6 +19,7 @@ const services = [
 const servicesWorking = services;
 
 washCarBtn.addEventListener('click', () => {
+
     render(servicesWorking[0])
     washCarBtn.disabled = true;
 })
@@ -37,11 +38,11 @@ sendBtn.addEventListener('click', () => {
     washLawnBtn.disabled = false;
     washWeedsBtn.disabled = false;
     total = [];
-    renderInformation.innerHTML='';
-    totalPrice.innerHTML='$0';
+    renderInformation.innerHTML = '';
+    totalPrice.innerHTML = '$0';
     totalPrice.classList.remove('total_amount_calcul');
     totalAmountDiv.classList.remove('total_amount_add');
-    const notesDes= document.querySelector(".notes_description")
+    const notesDes = document.querySelector(".notes_description")
     notesDes.remove();
 })
 
@@ -52,13 +53,32 @@ function render(array) {
     let price = document.createElement('span')
     let priceDoll = document.createElement('span');
     let divPrice = document.createElement('div')
+    let removeBtn = document.createElement('button');
+    let divForName = document.createElement('div');
+    let totalPriceAmount=0;
 
     element.classList.add('info-render-list');
     renderInformation.append(element);
 
+    divForName.classList.add('div_for_name')
+    element.append(divForName);
+
     name.classList.add('name-render')
     name.textContent = Object.keys(array);
-    element.append(name)
+    divForName.append(name)
+
+    removeBtn.classList.add('remove_btn');
+    removeBtn.textContent = "Remove";
+    divForName.append(removeBtn);
+
+    removeBtn.onclick = function (){
+        console.log('deleted')
+        console.log(total[0]);
+        total.pop();
+        element.remove();
+        totalPriceAmount = calculateTotal(total);
+        renderTotal(totalPriceAmount)
+    }
 
     divPrice.classList.add('price-div-wrapper-render');
     element.append(divPrice)
@@ -73,7 +93,7 @@ function render(array) {
     total.push(Object.values(array));
     renderDescription()
 
-    let totalPriceAmount = calculateTotal(total);
+    totalPriceAmount = calculateTotal(total);
     renderTotal(totalPriceAmount)
 }
 
@@ -100,3 +120,4 @@ function renderTotal(number) {
     totalPrice.textContent = `$${number}`;
     totalPrice.classList.add('total_amount_calcul')
 }
+
