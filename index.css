@@ -1,0 +1,200 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 1opx;
+  font-family: Inter, sans-serif;
+  min-width: 400px;
+  color: #2b283a;
+  background-color: #1c1c1c;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 550px;
+  background-color: white;
+}
+
+.header-wrapper {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 59px;
+  padding-bottom: 51px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  letter-spacing: -0.02rem;
+}
+
+.header-wrapper h5 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  text-align: center;
+  margin-top: 9px;
+  margin-bottom: 0;
+}
+
+.wrapper-info {
+  padding: 37px 38px 147px 38px;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+}
+.button {
+  background: #ffffff;
+  border: 1px solid #d5d4d8;
+  box-sizing: border-box;
+  border-radius: 7px;
+  padding: 9px 13px;
+  width: 143px;
+  height: 45px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #4a4e74;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #d1d4f4;
+  border: 2px solid #ffffff;
+}
+
+.information {
+  padding-top: 43px;
+  padding-bottom: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: #918e9b;
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  border: 1px solid #c3c6db;
+}
+.total-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 3.2rem;
+  color: #918e9b;
+}
+.total-information {
+  display: flex;
+  justify-content: space-between;
+}
+.total_amount {
+  display: flex;
+  justify-content: end;
+  font-size: 3.6rem;
+  line-height: 3.2rem;
+}
+
+.sendInvoice {
+  padding-top: 27px;
+  display: flex;
+  justify-content: center;
+}
+
+.sendInvoice button {
+  background: #3770ed;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 7px;
+  width: 473px;
+  height: 44px;
+  border: none;
+  padding: 9px 17px 9px 15px;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+.sendInvoice button:hover {
+  background: #d1d4f4;}
+
+.icon {
+  background-image: url('./images/icon.svg');
+  width: 16px;
+  height: 12px;
+  cursor: pointer;
+  display: inline-block;
+}
+.icon_around {
+  width: 16px;
+  height: 16px;
+  border-radius: 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#render_information {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-render-list {
+  display: flex;
+  justify-content: space-between;
+}
+.name-render {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #4a4e74;
+}
+
+.price-render {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 20px;
+  text-align: right;
+  color: #4a4e74;
+}
+
+.price-doll {
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 2rem;
+  text-align: right;
+  color: #918e9b;
+}
+
+.notes_description {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.total_amount_add {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total_amount_calcul {
+  color: #4a4e74;
+}

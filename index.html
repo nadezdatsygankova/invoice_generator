@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Invoice Generator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header-wrapper">
+            <h1> Invoice creator</h1>
+            <h5>Thanks for choosing GoodCorp, LLC!</h5>
+        </header>
+        <section class="wrapper-info">
+            <div class="btn-wrapper">
+                <button class="button" id="wash_car_btn">
+                    Wash Car: $10
+                </button>
+                <button class="button" id="wash_lawn_btn">
+                    Mow Lawn: $20
+                </button>
+                <button class="button" id="wash_weeds_btn">
+                    Pull Weeds: $30
+                </button>
+            </div>
+            <div>
+                <div class="information">
+                    <span>TASK</span> <span>TOTAL</span>
+                </div>
+                <div id="render_information"></div>
+            </div>
+            <hr>
+            <div class="total-wrapper">
+                <div class="total-information">
+                    <span>NOTES</span>
+                    <span>TOTAL AMOUNT</span>
+                </div>
+                <div class="total_amount">
+                    <p id="total_price">$0</p>
+                </div>
+            </div>
+            <div class="sendInvoice">
+                <button id="send_invoice"><span class="icon_around"><span class="icon"></span></span>Send invoice</button>
+            </div>
+        </section>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
