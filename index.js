@@ -16,20 +16,22 @@ const services = [
     { "Pull Weeds": 30 }
 ]
 
-const servicesWorking = services;
+const servicesWorking = [];
 
 washCarBtn.addEventListener('click', () => {
-
-    render(servicesWorking[0])
+    servicesWorking.push({ "Wash Car": 10 });
+    render(servicesWorking)
     washCarBtn.disabled = true;
 })
 
 washLawnBtn.addEventListener('click', () => {
-    render(servicesWorking[1])
+    servicesWorking.push({ "Mow Lawn": 20 });
+    render(servicesWorking)
     washLawnBtn.disabled = true;
 })
 washWeedsBtn.addEventListener('click', () => {
-    render(servicesWorking[2])
+    servicesWorking.push({ "Pull Weeds": 30 });
+    render(servicesWorking)
     washWeedsBtn.disabled = true;
 })
 
@@ -38,63 +40,78 @@ sendBtn.addEventListener('click', () => {
     washLawnBtn.disabled = false;
     washWeedsBtn.disabled = false;
     total = [];
+    servicesWorking.length = 0;
     renderInformation.innerHTML = '';
     totalPrice.innerHTML = '$0';
     totalPrice.classList.remove('total_amount_calcul');
     totalAmountDiv.classList.remove('total_amount_add');
     const notesDes = document.querySelector(".notes_description")
     notesDes.remove();
+
+
 })
 
 function render(array) {
+    let totalPriceAmount = 0;
+    renderInformation.innerHTML = ''
+    total = [];
+    for (const iterator of array) {
 
-    let element = document.createElement('div');
-    let name = document.createElement('span')
-    let price = document.createElement('span')
-    let priceDoll = document.createElement('span');
-    let divPrice = document.createElement('div')
-    let removeBtn = document.createElement('button');
-    let divForName = document.createElement('div');
-    let totalPriceAmount=0;
+        let element = document.createElement('div');
+        let name = document.createElement('span')
+        let price = document.createElement('span')
+        let priceDoll = document.createElement('span');
+        let divPrice = document.createElement('div')
+        let removeBtn = document.createElement('button');
+        let divForName = document.createElement('div');
+        console.log(iterator)
+        element.classList.add('info-render-list');
+        renderInformation.append(element);
 
-    element.classList.add('info-render-list');
-    renderInformation.append(element);
+        divForName.classList.add('div_for_name')
+        element.append(divForName);
 
-    divForName.classList.add('div_for_name')
-    element.append(divForName);
+        name.classList.add('name-render')
+        name.textContent = Object.keys(iterator);
+        divForName.append(name)
 
-    name.classList.add('name-render')
-    name.textContent = Object.keys(array);
-    divForName.append(name)
+        removeBtn.classList.add('remove_btn');
+        removeBtn.textContent = "Remove";
+        divForName.append(removeBtn);
 
-    removeBtn.classList.add('remove_btn');
-    removeBtn.textContent = "Remove";
-    divForName.append(removeBtn);
 
-    removeBtn.onclick = function (){
-        console.log('deleted')
-        console.log(total[0]);
-        total.pop();
-        element.remove();
+        divPrice.classList.add('price-div-wrapper-render');
+        element.append(divPrice)
+
+        priceDoll.classList.add('price-doll');
+        priceDoll.textContent = '$';
+        divPrice.append(priceDoll)
+
+        price.classList.add('price-render');
+        price.textContent = Object.values(iterator);
+        divPrice.append(price);
+
+        console.log(total)
+        total.push(Object.values(iterator));
+        renderDescription()
+        console.log(total)
         totalPriceAmount = calculateTotal(total);
         renderTotal(totalPriceAmount)
+        removeBtn.onclick = function () {
+            total.pop();
+            totalPriceAmount = calculateTotal(total);
+            renderTotal(totalPriceAmount)
+            servicesWorking.pop()
+            render(servicesWorking)
+
+        }
     }
-
-    divPrice.classList.add('price-div-wrapper-render');
-    element.append(divPrice)
-
-    priceDoll.classList.add('price-doll');
-    priceDoll.textContent = '$';
-    divPrice.append(priceDoll)
-
-    price.classList.add('price-render');
-    price.textContent = Object.values(array);
-    divPrice.append(price)
-    total.push(Object.values(array));
-    renderDescription()
-
-    totalPriceAmount = calculateTotal(total);
-    renderTotal(totalPriceAmount)
+    if (renderInformation.innerHTML === '') {
+        washWeedsBtn.disabled = false;
+        washLawnBtn.disabled = false;
+        washCarBtn.disabled = false;
+    }
+    console.log('finish rendering')
 }
 
 function calculateTotal(array) {
